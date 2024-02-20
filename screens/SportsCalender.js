@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BackArrowHeaderWhite from "../components/BackArrowHeaderWhite";
 import SportsCalendarDetails from "../components/SportsCalendarHome/SportsCalenderDetails";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function SportsCalender({ route, navigation }) {
   const header = route.params.header;
@@ -13,7 +14,7 @@ export default function SportsCalender({ route, navigation }) {
     console.log(checkboxData);
   }, [checkboxData]);
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeaderWhite
         FilterHandler={() =>  
           navigation.navigate("FilterSportsCalendar", { header: header })
@@ -25,13 +26,14 @@ export default function SportsCalender({ route, navigation }) {
       <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
         <SportsCalendarDetails header={header} checkboxData={checkboxData} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   icon: {

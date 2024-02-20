@@ -3,11 +3,16 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function Button({ name, validatonCheck }) {
+  let color='#EA5502'
+  if(name==='Save Changes'){
+    color='#8C1351'
+
+  }
   return (
     <View
       style={{
         borderRadius: 15,
-        backgroundColor: "#EA5502",
+        backgroundColor: color,
         overflow: "hidden",
         marginHorizontal: 40,
         marginVertical: 30,
@@ -19,7 +24,7 @@ export default function Button({ name, validatonCheck }) {
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        android_ripple={{ color: "#E47036" }}
+        android_ripple={{ color: color }}
         onPress={validatonCheck}
       >
         <Text style={{ textAlign: "center", color: "white", fontSize: 18 }}>

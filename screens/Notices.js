@@ -6,6 +6,7 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import GalleryData from "../components/GalleryData";
 import NoticesFlatList from "../components/NoticesFlatList";
+import { AppUtil } from "../Util/AppUtils";
 
 const data2 = [
   {
@@ -58,7 +59,7 @@ export default function Notices({navigation}) {
     navigation.goBack();
   }
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeader
         title="Notices"
         backButton={backButton}
@@ -67,13 +68,14 @@ export default function Notices({navigation}) {
       <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
         <NoticesFlatList navigation={navigation} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   icon: {

@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ForgotToolbar from "../components/ForgotToolbar";
 import Button from "../components/Button";
 import TextInputContainer from "../components/TextInputContainer";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function UpdatePassword({ route, navigation }) {
   const [newPassword, setNewPassword] = useState("");
@@ -42,7 +43,7 @@ export default function UpdatePassword({ route, navigation }) {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#a21c44" }}>
+    <View style={{ flex: 1, backgroundColor: "#a21c44", paddingTop:AppUtil.getHP(4), }}>
       <LinearGradient style={{ flex: 1 }} colors={["#BC1342", "#571262"]}>
         <ForgotToolbar title="Update Password" backButton={backButton} />
         <Text
@@ -72,6 +73,6 @@ export default function UpdatePassword({ route, navigation }) {
         />
         <Button name="SUBMIT" validatonCheck={handleSubmit} />
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   );
 }

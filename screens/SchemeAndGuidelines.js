@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
 import BackArrowHeaderWhite from "../components/BackArrowHeaderWhite";
 import SchemeList from "../components/SportsCalendarHome/SchemesList";
+import { AppUtil } from "../Util/AppUtils";
 
 const SchemeAndGuidelines = ({ route, navigation }) => {
   const [index, setIndex] = useState(0);
@@ -52,7 +53,7 @@ const SchemeAndGuidelines = ({ route, navigation }) => {
   const searchTitle = index === 0 ? "Schemes" : "Guidelines";
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeaderWhite
         searchTitle={searchTitle}
         filter={true}
@@ -67,13 +68,14 @@ const SchemeAndGuidelines = ({ route, navigation }) => {
         initialLayout={{ width: 0, height: 0 }}
         renderTabBar={renderTabBar}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
 });

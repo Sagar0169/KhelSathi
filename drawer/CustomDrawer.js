@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from "../components/colors/GColors";
 
 import { AuthContext } from "../store/auth-context";
+import { AppUtil } from "../Util/AppUtils";
 
 export const CustomDrawer = (props) => {
   const AuthCtx=useContext(AuthContext)
@@ -15,8 +16,8 @@ export const CustomDrawer = (props) => {
     return 
   }
   return (
-    <SafeAreaView style={{flex:1, backgroundColor: "#BC1342" }}>
-      <View style={{flex:0.17}}>
+    <View style={{flex:1, backgroundColor: "#BC1342" ,paddingTop:AppUtil.getHP(4), }}>
+      <View style={{flex:0.24}}>
         <LinearGradient
           style={{flex:1, backgroundColor: "#ccc454", width: "100%" }}
           colors={["#BC1342", "#571262"]}
@@ -58,7 +59,7 @@ export const CustomDrawer = (props) => {
                 </Text>
               </View>
             </View>
-            {isAuthenticated&&<TouchableOpacity  onPress={() => props.navigation.navigate('EditScreen')}>
+            {isAuthenticated&&<TouchableOpacity  onPress={() => props.navigation.navigate('EditProfile')}>
               <Image source={require("../assets/drawables/editProfile.png")} />
             </TouchableOpacity>}
           </View>
@@ -73,7 +74,7 @@ export const CustomDrawer = (props) => {
           <Image style={{marginEnd:7,marginBottom:9}} source={require('../assets/drawables/facilities.png')}/>
           <Text style={{}}>Facilities</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate('EditScreen')} style={{flexDirection:'row',borderBottomWidth:1,marginTop:12,alignItems:'center'}}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('PlayerList')} style={{flexDirection:'row',borderBottomWidth:1,marginTop:12,alignItems:'center'}}>
           <Image style={{marginEnd:7,marginBottom:9}} source={require('../assets/drawables/playerList.png')}/>
           <Text style={{}}>Player List</Text>
         </TouchableOpacity>
@@ -121,6 +122,6 @@ export const CustomDrawer = (props) => {
 
       </ScrollView>
     
-    </SafeAreaView>
+    </View>
   );
 };

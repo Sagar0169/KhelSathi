@@ -31,6 +31,7 @@ import SchemeAndGuidelines from "./screens/SchemeAndGuidelines";
 import PlayerList from "./screens/PlayerList";
 import FilterSportsCalendar from "./screens/FilterSportsCalendar";
 import { SearchProvider } from "./store/search-redux";
+import EditProfile from "./screens/EditProfile";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,6 +92,14 @@ function HomeScreen() {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          headerShown: false,
+          animation: 'fade',
+          
+        }}/>
     </Stack.Navigator>
   );
 }
@@ -291,7 +300,9 @@ function AuthenticatedStack() {
           presentation: "modal",
           animation: "slide_from_bottom",
         }}
+        
       />
+       
     </Stack.Navigator>
   );
 }

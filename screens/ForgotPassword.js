@@ -12,6 +12,7 @@ import {
 import Button from "../components/Button";
 import ForgotToolbar from "../components/ForgotToolbar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function ForgotPassword({ navigation }) {
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +46,7 @@ export default function ForgotPassword({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 ,backgroundColor:'#a21c44'}}>
+    <View style={{ flex: 1 ,backgroundColor:'#a21c44', paddingTop:AppUtil.getHP(4),}}>
       <LinearGradient
         // Background Linear Gradient
         style={{ flex: 1 }}
@@ -93,6 +94,6 @@ export default function ForgotPassword({ navigation }) {
         />
         <Button name="SUBMIT" validatonCheck={validateInput} />
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   );
 }

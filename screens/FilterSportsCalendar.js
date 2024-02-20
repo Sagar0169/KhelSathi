@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native";
 import FilterHeader from "../components/FilterHeader";
 import Checkbox from "expo-checkbox";
 import Button from "../components/Button";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function FilterSportsCalendar({ route, navigation }) {
   const header = route.params.header;
@@ -27,7 +28,7 @@ export default function FilterSportsCalendar({ route, navigation }) {
     });
   }
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <FilterHeader title={header} backButton={() => navigation.goBack()} />
       <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
         <View style={{ margin: 10, flex: 1 }}>
@@ -119,13 +120,14 @@ export default function FilterSportsCalendar({ route, navigation }) {
           <Button name="Apply Filters" validatonCheck={SportsCalendarHandler} />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   checkboxContainer: {

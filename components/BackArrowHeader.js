@@ -3,6 +3,11 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function BackArrowHeader({ title, backButton, showArrow }) {
+  let source=false
+  if(title==='Edit Profile'){
+    source=true
+
+  }
   return (
     <LinearGradient
       style={{
@@ -28,14 +33,22 @@ export default function BackArrowHeader({ title, backButton, showArrow }) {
           onPress={backButton}
           hitSlop={{ top: 20, right: 20, bottom: 20, left: 20 }}
         >
-          <Image
+         { !source&&<Image
             style={{
               width: 40,
               height: 40,
               resizeMode: "cover",
             }}
             source={require("../assets/images/orange_back.png")}
-          />
+          />}
+          { source&&<Image
+            style={{
+              width: 40,
+              height: 40,
+              resizeMode: "cover",
+            }}
+            source={require("../assets/images/white_back.png")}
+          />}
         </Pressable>
       )}
 

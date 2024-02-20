@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import BackArrowHeader from "../components/BackArrowHeader";
 import AllSportsData from "../components/AllSportsData";
 import HorizontalFlatList from "../components/HomeComponent/HorizontalFlatList";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function AllSports({route, navigation }) {
   const flag = route.params.flag;
@@ -50,18 +51,19 @@ export default function AllSports({route, navigation }) {
   }, [flag, navigation]);
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeader title="All Sports" backButton={backButton} />
       <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
         <AllSportsData navigation={navigation} flag={flag}/>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   icon: {

@@ -15,6 +15,7 @@ import { login } from "../Util/auth";
 import Button from "../components/Button";
 import TextInputContainer from "../components/TextInputContainer";
 import { AuthContext } from "../store/auth-context";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -63,7 +64,7 @@ export default function Login({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
         style={{ flex: 1 }}
@@ -245,13 +246,14 @@ export default function Login({ navigation }) {
           </View>
         </ScrollView>
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
   },
   halfCurcular: {
     flexDirection: "row",

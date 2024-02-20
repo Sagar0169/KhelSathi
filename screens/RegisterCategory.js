@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import DropDown from "../components/CustomeDropDown";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function RegisterCategory({navigation}) {
   const [selectValue, setSelectValue] = React.useState("");
@@ -76,7 +77,7 @@ export default function RegisterCategory({navigation}) {
   }, [selectValue]);
   
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
         style={{ flex: 1 }}
@@ -129,13 +130,14 @@ export default function RegisterCategory({navigation}) {
           </View>
         </ScrollView>
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
   },
   halfCurcular: {
     flexDirection: "row",

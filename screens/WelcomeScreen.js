@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-
+import { AppUtil } from "../Util/AppUtils";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import HealthFacilities from "../components/HomeComponent/HealthFacilities";
@@ -38,7 +38,7 @@ function WelcomeScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       {/* Home Header Design */}
       <HomeHeader handlerSignout={handlerSignout} navigation={navigation} />
 
@@ -91,7 +91,7 @@ function WelcomeScreen({ navigation }) {
           <HealthFacilities />
         </ScrollView>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -100,6 +100,7 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   icon: {

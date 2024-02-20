@@ -17,6 +17,7 @@ import { createUser, getSportsDropDown } from "../Util/auth";
 import LoadingOverlay from "../components/LoadingOverlay";
 import DropDown from "../components/CustomeDropDown";
 import BottomSheet from "../components/CustomBottomSheet";
+import { AppUtil } from "../Util/AppUtils";
 
 let ITEMS_PER_PAGE = 10;
 
@@ -112,7 +113,7 @@ export default function SignUp({ route, navigation }) {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#a21c44" }}>
+    <View style={{ flex: 1, backgroundColor: "#a21c44", paddingTop:AppUtil.getHP(4), }}>
       <LinearGradient
         // Background Linear Gradient
         style={{ flex: 1 }}
@@ -297,7 +298,7 @@ export default function SignUp({ route, navigation }) {
           />
         )}
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   );
 }
 

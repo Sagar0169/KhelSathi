@@ -12,6 +12,7 @@ import CoachesDetails from "../components/Facilitites/CoachesDetails";
 import { CommonActions } from "@react-navigation/native";
 
 import HostelsDetails from "../components/Facilitites/HostelsDetails";
+import { AppUtil } from "../Util/AppUtils";
 
 export default function Facilities({ navigation, route }) {
   const indexing = route.params?.indexs; // Use optional chaining to avoid errors if params is undefined
@@ -86,7 +87,7 @@ export default function Facilities({ navigation, route }) {
   }
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeader
         title="Facilities"
         backButton={() => navigation.goBack()}
@@ -99,13 +100,14 @@ export default function Facilities({ navigation, route }) {
         initialLayout={{ width: 0, height: 0 }}
         renderTabBar={renderTabBar}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
   icon: {

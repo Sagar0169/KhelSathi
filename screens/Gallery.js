@@ -5,6 +5,7 @@ import BackArrowHeader from "../components/BackArrowHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "react-native";
 import GalleryData from "../components/GalleryData";
+import { AppUtil } from "../Util/AppUtils";
 
 
 const Gallery = ({ route, navigation }) => {
@@ -52,7 +53,7 @@ const Gallery = ({ route, navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <BackArrowHeader
         title="Gallery & Press Release"
         backButton={() => navigation.goBack()}
@@ -65,13 +66,14 @@ const Gallery = ({ route, navigation }) => {
         initialLayout={{ width: 0, height: 0 }}
         renderTabBar={renderTabBar}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    paddingTop:AppUtil.getHP(4),
     backgroundColor: "#971c47",
   },
 });
